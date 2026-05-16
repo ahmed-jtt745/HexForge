@@ -1,0 +1,241 @@
+/* ============================================
+   FONTS
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600&display=swap');
+
+/* ============================================
+   VARIABLES
+   ============================================ */
+:root {
+  --bg-base:      #0f1117;
+  --bg-surface:   #1a1d2e;
+  --bg-elevated:  #20243a;
+  --border:       #2a2d3e;
+  --border-focus: #5b8dee;
+  --text-main:    #e8eaf6;
+  --text-dim:     #a0a8cc;
+  --text-muted:   #3d4166;
+  --accent-blue:  #5b8dee;
+  --result-green: #7ee8a2;
+
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-body: 'Outfit', sans-serif;
+
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+
+  --transition: 0.2s ease;
+}
+
+/* ============================================
+   RESET
+   ============================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   BASE
+   ============================================ */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-base);
+  font-family: var(--font-body);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+/* ============================================
+   CONTAINER / CARD
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  /* subtle glow to lift card off page */
+  box-shadow:
+    0 0 0 1px rgba(91, 141, 238, 0.04),
+    0 24px 48px rgba(0, 0, 0, 0.4);
+
+  animation: fadeUp 0.4s ease both;
+}
+
+/* ============================================
+   HEADING
+   ============================================ */
+h1 {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   DIVIDER (optional — add <hr> under h1)
+   ============================================ */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* ============================================
+   INPUT
+   ============================================ */
+input[type="text"] {
+  width: 100%;
+  background-color: var(--bg-elevated);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-main);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+input[type="text"]::placeholder {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+input[type="text"]:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(91, 141, 238, 0.12);
+}
+
+/* ============================================
+   SELECT
+   ============================================ */
+select {
+  width: 100%;
+  background-color: var(--bg-elevated);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 2.5rem 0.8rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color var(--transition), box-shadow var(--transition);
+
+  /* custom dropdown arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' viewBox='0 0 12 12'%3E%3Cpath stroke='%235b8dee' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M3 4.5L6 7.5L9 4.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+select:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(91, 141, 238, 0.12);
+}
+
+select option {
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+}
+
+/* ============================================
+   ANSWER / RESULT
+   ============================================ */
+.container p {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-base);
+  border: 1.5px solid var(--border);
+  border-left: 3px solid var(--result-green);
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--result-green);
+  letter-spacing: 0.05em;
+  transition: color var(--transition);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   RESPONSIVENESS
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 600px) {
+  .container {
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius-lg);
+  }
+
+  h1 {
+    font-size: 1rem;
+  }
+
+  input[type="text"],
+  select {
+    font-size: 0.9rem;
+    padding: 0.75rem 0.9rem;
+  }
+
+  .container p {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 380px) {
+  body {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .container {
+    padding: 1.5rem 1.2rem;
+    gap: 0.85rem;
+  }
+
+  h1 {
+    font-size: 0.9rem;
+  }
+}
