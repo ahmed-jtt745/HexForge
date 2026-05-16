@@ -107,7 +107,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>Converter</h1>
+      <h1>HexForge Converter</h1>
       <input type="text" autoFocus placeholder='Enter the value' onChange={(element) => {
         calculateResult(element.target.value.toUpperCase());
       }} />
